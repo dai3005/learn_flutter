@@ -93,7 +93,7 @@ class SectionFeature extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.all(3),
+      padding: const EdgeInsets.only(top: 10, left: 5, right: 5),
       color: Colors.white,
       height: 200,
       child: Expanded(
@@ -105,8 +105,6 @@ class SectionFeature extends StatelessWidget {
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       child: Image.asset(
@@ -128,8 +126,6 @@ class SectionFeature extends StatelessWidget {
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       child: Image.asset(
@@ -151,8 +147,6 @@ class SectionFeature extends StatelessWidget {
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       child: Image.asset(
@@ -174,8 +168,6 @@ class SectionFeature extends StatelessWidget {
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       child: Image.asset(
@@ -197,8 +189,6 @@ class SectionFeature extends StatelessWidget {
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       child: Image.asset(
@@ -220,8 +210,6 @@ class SectionFeature extends StatelessWidget {
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       child: Image.asset(
@@ -243,8 +231,6 @@ class SectionFeature extends StatelessWidget {
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       child: Image.asset(
@@ -266,8 +252,6 @@ class SectionFeature extends StatelessWidget {
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       child: Image.asset(
@@ -289,8 +273,6 @@ class SectionFeature extends StatelessWidget {
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       child: Image.asset(
@@ -312,8 +294,6 @@ class SectionFeature extends StatelessWidget {
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Container(
                       child: Image.asset(

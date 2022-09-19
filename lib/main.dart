@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -28,13 +26,38 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int _selectedIndex = 0;
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: const [
-        SectionHeader(),
-        SectionFeature(),
-      ]),
+      body: SingleChildScrollView(
+        child: Column(children: const [
+          SectionHeader(),
+          SectionFeature(),
+        ]),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.deepOrange,
+        unselectedItemColor: Colors.grey,
+        type: BottomNavigationBarType.shifting,
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(icon: Icon(Icons.add_chart), label: 'Chart'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart), label: 'Cart'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.notifications), label: 'Notifications'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Your')
+        ],
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+      ),
     );
   }
 }
@@ -63,7 +86,8 @@ class _SectionHeaderState extends State<SectionHeader> {
           Expanded(
             flex: 1,
             child: Container(
-                padding: const EdgeInsets.all(3), child: Icon(Icons.qr_code)),
+                padding: const EdgeInsets.all(3),
+                child: const Icon(Icons.qr_code)),
           ),
           Expanded(
               flex: 9,
@@ -91,7 +115,6 @@ class SectionFeature extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Container(
       padding: const EdgeInsets.only(top: 10, left: 5, right: 5),
       color: Colors.white,
@@ -103,39 +126,41 @@ class SectionFeature extends StatelessWidget {
           children: <Widget>[
             Card(
                 elevation: 0,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Container(
-                      child: Image.asset(
+                child: InkWell(
+                  splashColor: Colors.blue.withAlpha(30),
+                  onTap: () {
+                    debugPrint('Card tapped.');
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Image.asset(
                         'assets/images/icoDanhMuc.png',
                         height: 30,
                         width: 30,
                       ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 5),
-                      child: const Text(
-                        'Danh mục',
-                        textAlign: TextAlign.center,
-                      ),
-                    )
-                  ],
+                      Container(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: const Text(
+                          'Danh mục',
+                          textAlign: TextAlign.center,
+                        ),
+                      )
+                    ],
+                  ),
                 )),
             Card(
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Container(
-                      child: Image.asset(
-                        'assets/images/icoNapThe.png',
-                        height: 30,
-                        width: 30,
-                      ),
+                    Image.asset(
+                      'assets/images/icoNapThe.png',
+                      height: 30,
+                      width: 30,
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 10),
                       child: const Text(
                         'Nạp thẻ',
                         textAlign: TextAlign.center,
@@ -148,15 +173,13 @@ class SectionFeature extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Container(
-                      child: Image.asset(
-                        'assets/images/icoDaoTao.png',
-                        height: 30,
-                        width: 30,
-                      ),
+                    Image.asset(
+                      'assets/images/icoDaoTao.png',
+                      height: 30,
+                      width: 30,
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 10),
                       child: const Text(
                         'Đào tạo',
                         textAlign: TextAlign.center,
@@ -166,39 +189,41 @@ class SectionFeature extends StatelessWidget {
                 )),
             Card(
                 elevation: 0,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Container(
-                      child: Image.asset(
+                child: InkWell(
+                  splashColor: Colors.grey.withAlpha(30),
+                  onTap: () {
+                    debugPrint('Card tapped.');
+                  },
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      Image.asset(
                         'assets/images/icoThanhToanNuoc.png',
                         height: 30,
                         width: 30,
                       ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(top: 5),
-                      child: const Text(
-                        'Thanh toán nước',
-                        textAlign: TextAlign.center,
-                      ),
-                    )
-                  ],
+                      Container(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: const Text(
+                          'Thanh toán nước',
+                          textAlign: TextAlign.center,
+                        ),
+                      )
+                    ],
+                  ),
                 )),
             Card(
                 elevation: 0,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Container(
-                      child: Image.asset(
-                        'assets/images/icoDatPhong.png',
-                        height: 30,
-                        width: 30,
-                      ),
+                    Image.asset(
+                      'assets/images/icoDatPhong.png',
+                      height: 30,
+                      width: 30,
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 10),
                       child: const Text(
                         'Booking',
                         textAlign: TextAlign.center,
@@ -211,15 +236,13 @@ class SectionFeature extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Container(
-                      child: Image.asset(
-                        'assets/images/icoMuaVeXemPhim.png',
-                        height: 30,
-                        width: 30,
-                      ),
+                    Image.asset(
+                      'assets/images/icoMuaVeXemPhim.png',
+                      height: 30,
+                      width: 30,
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 5),
+                      margin: const EdgeInsets.only(top: 10),
                       child: const Text(
                         'Mua vé xem phim',
                         textAlign: TextAlign.center,
@@ -232,15 +255,13 @@ class SectionFeature extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Container(
-                      child: Image.asset(
-                        'assets/images/icoDonNha.png',
-                        height: 30,
-                        width: 30,
-                      ),
+                    Image.asset(
+                      'assets/images/icoDonNha.png',
+                      height: 30,
+                      width: 30,
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 10),
                       child: const Text(
                         'Dọn dẹp',
                         textAlign: TextAlign.center,
@@ -253,15 +274,13 @@ class SectionFeature extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Container(
-                      child: Image.asset(
-                        'assets/images/icoThanhToanDien.png',
-                        height: 30,
-                        width: 30,
-                      ),
+                    Image.asset(
+                      'assets/images/icoThanhToanDien.png',
+                      height: 30,
+                      width: 30,
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 10),
                       child: const Text(
                         'Thanh toán điện',
                         textAlign: TextAlign.center,
@@ -274,15 +293,13 @@ class SectionFeature extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Container(
-                      child: Image.asset(
-                        'assets/images/icoDatVe.png',
-                        height: 30,
-                        width: 30,
-                      ),
+                    Image.asset(
+                      'assets/images/icoDatVe.png',
+                      height: 30,
+                      width: 30,
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 10),
                       child: const Text(
                         'Đặt vé',
                         textAlign: TextAlign.center,
@@ -295,15 +312,13 @@ class SectionFeature extends StatelessWidget {
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
-                    Container(
-                      child: Image.asset(
-                        'assets/images/icoInternet.png',
-                        height: 30,
-                        width: 30,
-                      ),
+                    Image.asset(
+                      'assets/images/icoInternet.png',
+                      height: 30,
+                      width: 30,
                     ),
                     Container(
-                      padding: EdgeInsets.only(top: 5),
+                      padding: const EdgeInsets.only(top: 10),
                       child: const Text(
                         'Internet',
                         textAlign: TextAlign.center,
